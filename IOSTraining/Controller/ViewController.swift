@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var reloadButton: UIButton!
+    @IBOutlet weak var minTemperatureLabel: UILabel!
+    @IBOutlet weak var maxTemperatureLabel: UILabel!
     
     var weatherManager = WeatherManager()
 
@@ -20,7 +22,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func reloadButtonPressed(_ sender: UIButton) {
-        weatherManager.fetchWeatherCondition()
+        weatherManager.fetchWeatherData()
     }
     
 }
@@ -28,8 +30,10 @@ class ViewController: UIViewController {
 extension ViewController: WeatherManagerDelegate {
     func weatherImageDidUpdate(weatherModel: WeatherModel) {
         DispatchQueue.main.async {
-            self.weatherImage.image = UIImage(named: weatherModel.type)
+            self.weatherImage.image = UIImage(named: weatherModel.condition)
             self.weatherImage.tintColor = weatherModel.color
+            self.minTemperatureLabel.text = String(weatherModel.minTemperature)
+            self.maxTemperatureLabel.text = String(weatherModel.maxTemperature)
         }
     }
 

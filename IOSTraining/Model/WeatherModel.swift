@@ -9,10 +9,12 @@ import Foundation
 import UIKit
 
 struct WeatherModel {
-    let type: String
+    let condition: String
+    let maxTemperature: Int
+    let minTemperature: Int
 
     var color: UIColor {
-        switch type {
+        switch condition {
         case "sunny":
             return UIColor.systemRed
         case "cloudy":
