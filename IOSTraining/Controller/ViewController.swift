@@ -27,8 +27,16 @@ class ViewController: UIViewController {
 
 extension ViewController: WeatherManagerDelegate {
     func weatherImageDidUpdate(weatherModel: WeatherModel) {
-        self.weatherImage.image = UIImage(named: weatherModel.type)
-        weatherImage.tintColor = weatherModel.color
+        DispatchQueue.main.async {
+            self.weatherImage.image = UIImage(named: weatherModel.type)
+            self.weatherImage.tintColor = weatherModel.color
+        }
+    }
+
+    func showFetchWeatherDataError() {
+        let alert = UIAlertController(title: "Error", message: "天気データの取得に失敗しました", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
