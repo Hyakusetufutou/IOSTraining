@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22052E0D2C11E0A2001AC0A2 /* YumemiWeather in Frameworks */ = {isa = PBXBuildFile; productRef = 22052E0C2C11E0A2001AC0A2 /* YumemiWeather */; };
+		22052E102C11E2E8001AC0A2 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22052E0F2C11E2E8001AC0A2 /* WeatherManager.swift */; };
 		22B49CF22BFE2275004EF67D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B49CF12BFE2275004EF67D /* AppDelegate.swift */; };
 		22B49CF42BFE2275004EF67D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B49CF32BFE2275004EF67D /* SceneDelegate.swift */; };
 		22B49CF62BFE2275004EF67D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B49CF52BFE2275004EF67D /* ViewController.swift */; };
 		22B49CF92BFE2275004EF67D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 22B49CF82BFE2275004EF67D /* Base */; };
 		22B49CFB2BFE2276004EF67D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22B49CFA2BFE2276004EF67D /* Assets.xcassets */; };
 		22B49CFE2BFE2276004EF67D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 22B49CFD2BFE2276004EF67D /* Base */; };
+		22DA09A62C158E89001ABC14 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DA09A52C158E89001ABC14 /* WeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22052E0F2C11E2E8001AC0A2 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		22B49CEE2BFE2275004EF67D /* IOSTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22B49CF12BFE2275004EF67D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22B49CF32BFE2275004EF67D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +28,7 @@
 		22B49CFA2BFE2276004EF67D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22B49CFD2BFE2276004EF67D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22B49CFF2BFE2276004EF67D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22DA09A52C158E89001ABC14 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,12 +36,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22052E0D2C11E0A2001AC0A2 /* YumemiWeather in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22052E0E2C11E1B3001AC0A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22052E0F2C11E2E8001AC0A2 /* WeatherManager.swift */,
+				22DA09A52C158E89001ABC14 /* WeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		22B49CE52BFE2275004EF67D = {
 			isa = PBXGroup;
 			children = (
@@ -58,8 +73,9 @@
 			children = (
 				22B49CF12BFE2275004EF67D /* AppDelegate.swift */,
 				22B49CF32BFE2275004EF67D /* SceneDelegate.swift */,
-				22B49D052BFE26E5004EF67D /* Controller */,
+				22052E0E2C11E1B3001AC0A2 /* Model */,
 				22D2DB5E2BFE9942008F06EC /* View */,
+				22B49D052BFE26E5004EF67D /* Controller */,
 				22B49CFA2BFE2276004EF67D /* Assets.xcassets */,
 				22B49CFC2BFE2276004EF67D /* LaunchScreen.storyboard */,
 				22B49CFF2BFE2276004EF67D /* Info.plist */,
@@ -99,6 +115,9 @@
 			dependencies = (
 			);
 			name = IOSTraining;
+			packageProductDependencies = (
+				22052E0C2C11E0A2001AC0A2 /* YumemiWeather */,
+			);
 			productName = IOSTraining;
 			productReference = 22B49CEE2BFE2275004EF67D /* IOSTraining.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +146,9 @@
 				Base,
 			);
 			mainGroup = 22B49CE52BFE2275004EF67D;
+			packageReferences = (
+				22052E0B2C11E0A2001AC0A2 /* XCRemoteSwiftPackageReference "ios-training" */,
+			);
 			productRefGroup = 22B49CEF2BFE2275004EF67D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -156,7 +178,9 @@
 			files = (
 				22B49CF62BFE2275004EF67D /* ViewController.swift in Sources */,
 				22B49CF22BFE2275004EF67D /* AppDelegate.swift in Sources */,
+				22052E102C11E2E8001AC0A2 /* WeatherManager.swift in Sources */,
 				22B49CF42BFE2275004EF67D /* SceneDelegate.swift in Sources */,
+				22DA09A62C158E89001ABC14 /* WeatherModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +401,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		22052E0B2C11E0A2001AC0A2 /* XCRemoteSwiftPackageReference "ios-training" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yumemi-inc/ios-training.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		22052E0C2C11E0A2001AC0A2 /* YumemiWeather */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22052E0B2C11E0A2001AC0A2 /* XCRemoteSwiftPackageReference "ios-training" */;
+			productName = YumemiWeather;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 22B49CE62BFE2275004EF67D /* Project object */;
 }

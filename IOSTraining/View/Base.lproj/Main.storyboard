@@ -55,12 +55,15 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpx-YV-6q1">
                                         <rect key="frame" x="0.0" y="0.0" width="98.333333333333329" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Close"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQe-sL-FyI">
                                         <rect key="frame" x="98.333333333333314" y="0.0" width="98" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Reload"/>
+                                        <connections>
+                                            <action selector="reloadButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gX2-HY-ebp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -83,6 +86,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="reloadButton" destination="kQe-sL-FyI" id="tr2-KB-2np"/>
                         <outlet property="weatherImage" destination="NVR-TC-ZaV" id="Tg4-uB-tYd"/>
                     </connections>
                 </viewController>
