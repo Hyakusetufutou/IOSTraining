@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var reloadButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var minTemperatureLabel: UILabel!
     @IBOutlet weak var maxTemperatureLabel: UILabel!
     
@@ -25,6 +26,9 @@ class ViewController: UIViewController {
         weatherManager.fetchWeatherData()
     }
     
+    @IBAction func closeButtonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension ViewController: WeatherManagerDelegate {
