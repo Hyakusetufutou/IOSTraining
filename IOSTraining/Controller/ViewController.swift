@@ -20,6 +20,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         weatherManager.delegate = self
+
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
     @IBAction func reloadButtonPressed(_ sender: UIButton) {
@@ -28,6 +30,11 @@ class ViewController: UIViewController {
     
     @IBAction func closeButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    @objc func appWillBecomeActive(_ notification: Notification) {
+        print("test")
+        weatherManager.fetchWeatherData()
     }
 }
 
