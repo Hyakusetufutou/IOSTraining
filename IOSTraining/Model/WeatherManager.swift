@@ -13,7 +13,12 @@ protocol WeatherManagerDelegate {
     func showFetchWeatherDataError()
 }
 
-struct WeatherManager {
+protocol WeatherFetching {
+    var delegate: WeatherManagerDelegate? { get set }
+    func fetchWeatherData()
+}
+
+struct WeatherManager: WeatherFetching {
     var delegate: WeatherManagerDelegate?
 
     func fetchWeatherData() {
