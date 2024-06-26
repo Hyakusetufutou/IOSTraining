@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 
     static func getInstance(weatherFetching: WeatherFetching) -> ViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(identifier: "hoge") { coder in
+        let viewController = storyboard.instantiateViewController(identifier: "ViewController") { coder in
             ViewController(coder: coder, weatherFetching: weatherFetching)
         }
 
