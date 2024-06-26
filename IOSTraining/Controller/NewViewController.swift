@@ -16,7 +16,10 @@ class NewViewController: UIViewController {
 
     override func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
-        performSegue(withIdentifier: "next", sender: nil)
+//        performSegue(withIdentifier: "next", sender: nil)
+        let controller = ViewController.getInstance(weatherFetching: WeatherManager())
+        controller.modalPresentationStyle = .fullScreen
+        present(controller, animated: true, completion: nil)
         print("viewIsAppearing")
     }
 

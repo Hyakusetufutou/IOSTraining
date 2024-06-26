@@ -14,18 +14,37 @@ class ViewController: UIViewController {
     @IBOutlet weak var minTemperatureLabel: UILabel!
     @IBOutlet weak var maxTemperatureLabel: UILabel!
     
-    var weatherManager = WeatherManager()
+    var weatherFetching: WeatherFetching
+
+    static func getInstance(weatherFetching: WeatherFetching) -> ViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(identifier: "ViewController") { coder in
+            ViewController(coder: coder, weatherFetching: weatherFetching)
+        }
+
+        return viewController
+    }
+
+    init?(coder: NSCoder, weatherFetching: WeatherFetching) {
+        self.weatherFetching = weatherFetching
+        super.init(coder: coder)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        weatherManager.delegate = self
+        weatherFetching.delegate = self
 
         NotificationCenter.default.addObserver(self, selector: #selector(appWillBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+
     }
 
     @IBAction func reloadButtonPressed(_ sender: UIButton) {
-        weatherManager.fetchWeatherData()
+        weatherFetching.fetchWeatherData()
     }
     
     @IBAction func closeButtonPressed(_ sender: UIButton) {
@@ -34,7 +53,7 @@ class ViewController: UIViewController {
 
     @objc func appWillBecomeActive(_ notification: Notification) {
         print("test")
-        weatherManager.fetchWeatherData()
+        weatherFetching.fetchWeatherData()
     }
 }
 
