@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var minTemperatureLabel: UILabel!
     @IBOutlet weak var maxTemperatureLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var weatherFetching: WeatherFetching
 
@@ -40,10 +41,13 @@ class ViewController: UIViewController {
         weatherFetching.delegate = self
 
         NotificationCenter.default.addObserver(self, selector: #selector(appWillBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
-
+        activityIndicator.hidesWhenStopped = true
     }
 
     @IBAction func reloadButtonPressed(_ sender: UIButton) {
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
         weatherFetching.fetchWeatherData()
     }
     
@@ -64,13 +68,17 @@ extension ViewController: WeatherManagerDelegate {
             self.weatherImage.tintColor = weatherModel.color
             self.minTemperatureLabel.text = String(weatherModel.minTemperature)
             self.maxTemperatureLabel.text = String(weatherModel.maxTemperature)
+            self.activityIndicator.stopAnimating()
         }
     }
 
     func showFetchWeatherDataError() {
-        let alert = UIAlertController(title: "Error", message: "天気データの取得に失敗しました", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
-        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Error", message: "天気データの取得に失敗しました", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+            self.present(alert, animated: true, completion: nil)
+            self.activityIndicator.stopAnimating()
+        }
     }
 }
 

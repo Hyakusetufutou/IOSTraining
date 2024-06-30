@@ -90,14 +90,20 @@
                                     <constraint firstItem="mpx-YV-6q1" firstAttribute="width" secondItem="aPE-m4-hjp" secondAttribute="width" multiplier="0.5" id="xvz-7k-hyq"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="poi-ip-SM2">
+                                <rect key="frame" x="186.66666666666666" y="593.33333333333337" width="20" height="0.0"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="0en-Gx-FDv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9T1-IZ-ops"/>
+                            <constraint firstItem="poi-ip-SM2" firstAttribute="top" secondItem="0en-Gx-FDv" secondAttribute="bottom" constant="40" id="FC7-8r-XVh"/>
+                            <constraint firstItem="poi-ip-SM2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qbe-6l-WUG"/>
                             <constraint firstItem="NVR-TC-ZaV" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="UoW-x7-7qp"/>
                             <constraint firstItem="0en-Gx-FDv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WnK-q4-rg3"/>
                             <constraint firstItem="0en-Gx-FDv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="cuf-vf-eXQ"/>
+                            <constraint firstItem="aPE-m4-hjp" firstAttribute="top" secondItem="poi-ip-SM2" secondAttribute="bottom" constant="40" id="o9Y-1E-Wpw"/>
                             <constraint firstItem="aPE-m4-hjp" firstAttribute="top" secondItem="0en-Gx-FDv" secondAttribute="bottom" constant="80" id="rP4-fD-qtQ"/>
                             <constraint firstItem="aPE-m4-hjp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t6M-tk-NcU"/>
                             <constraint firstItem="aPE-m4-hjp" firstAttribute="width" secondItem="8Td-2n-NCZ" secondAttribute="width" id="tRF-S3-uEd"/>
@@ -105,6 +111,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="poi-ip-SM2" id="RMN-nO-O0f"/>
                         <outlet property="closeButton" destination="mpx-YV-6q1" id="mlZ-hg-42G"/>
                         <outlet property="maxTemperatureLabel" destination="SBK-Ef-8WO" id="Zdo-OD-b1f"/>
                         <outlet property="minTemperatureLabel" destination="hBW-Kf-790" id="K6T-bE-OWp"/>
@@ -114,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057.2519083969464" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="1055.7251908396945" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
@@ -122,10 +129,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
