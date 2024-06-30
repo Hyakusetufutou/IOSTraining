@@ -22,17 +22,19 @@ struct WeatherManager: WeatherFetching {
     var delegate: WeatherManagerDelegate?
 
     func fetchWeatherData() {
-        do {
-            let request = WeatherDataRequest(area: "tokyo", date: Date().formatted(Date.ISO8601FormatStyle().dateSeparator(.dash)))
-            if let jsonString = makeJSON(request: request) {
-                let response = try YumemiWeather.fetchWeather(jsonString)
-                let weatherModel = self.parseJSON(response: response)
-                if let safeWeatherModel = weatherModel {
-                    self.delegate?.weatherImageDidUpdate(weatherModel: safeWeatherModel)
+        DispatchQueue.global().async {
+            do {
+                let request = WeatherDataRequest(area: "tokyo", date: Date().formatted(Date.ISO8601FormatStyle().dateSeparator(.dash)))
+                if let jsonString = makeJSON(request: request) {
+                    let response = try YumemiWeather.syncFetchWeather(jsonString)
+                    let weatherModel = self.parseJSON(response: response)
+                    if let safeWeatherModel = weatherModel {
+                        self.delegate?.weatherImageDidUpdate(weatherModel: safeWeatherModel)
+                    }
                 }
+            } catch {
+                self.delegate?.showFetchWeatherDataError()
             }
-        } catch {
-            self.delegate?.showFetchWeatherDataError()
         }
     }
 
