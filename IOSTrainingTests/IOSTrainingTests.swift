@@ -58,7 +58,7 @@ final class IOSTrainingTests: XCTestCase {
 }
 
 class MockWeatherFetching: WeatherFetching {
-    var delegate: WeatherManagerDelegate?
+    weak var delegate: WeatherManagerDelegate?
     var fetchWeatherDataCalled = false
 
     func fetchWeatherData() {
