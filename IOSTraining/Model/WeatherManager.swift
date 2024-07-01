@@ -8,7 +8,7 @@
 import Foundation
 import YumemiWeather
 
-protocol WeatherManagerDelegate {
+protocol WeatherManagerDelegate: AnyObject {
     func weatherImageDidUpdate(weatherModel: WeatherModel)
     func showFetchWeatherDataError()
 }
@@ -19,7 +19,7 @@ protocol WeatherFetching {
 }
 
 struct WeatherManager: WeatherFetching {
-    var delegate: WeatherManagerDelegate?
+    weak var delegate: WeatherManagerDelegate?
 
     func fetchWeatherData() {
         DispatchQueue.global().async {
